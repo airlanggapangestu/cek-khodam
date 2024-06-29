@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cek Khodam Online</title>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+    .box {
+      width: 450px;
+      padding: 40px 30px 35px 30px;
+      border-radius: 15px;
+      background-color: #fff;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      color: #070f2b;
+    }
+    button {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: 0px;
+      border-radius: 5px;
+      outline: none;
+      background-color: #ffc94a;
+    }
+    input {
+      font-family: "Poppins", sans-serif;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: 0;
+      border-radius: 5px;
+      outline: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    #hasil {
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffc94a;
+      margin-top: 15px;
+      line-height: 21px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        <h2 class="">Cek Khodam</h2>
+        <form id="khodamForm" action="#">
+          <div>
+            <input type="text" id="nama" placeholder="Masukan Nama Kamu" name="nama" />
+          </div>
+          <div>
+            <button type="submit">CEK</button>
+          </div>
+          <div id="hasil"></div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const namaKhodam = [
+        "Kosong",
+        "Kapal Laut",
+        "Harimau Sumatera",
+        "Harimau Jawa",
+        "Macan Jawa",
+        "Ular Berkepala Dua",
+        "Kurama Ekor Sembilan",
+        "Ceker Babat",
+        "Yakult",
+        "Banteng Merah",
+        "Maung",
+        "Buaya Kaki Satu",
+        "Elang Gabisa Terbang",
+        "Tobrut",
+        "Gitar Spanyol",
+        "Ronaldo",
+        "Messi",
+        "Goat",
+        "Kambing Berbulu Domba",
+        "Kambing Berkepala Harimau",
+        "Kuyang",
+        "Semut Polisi",
+        "Tikus Berdasi",
+        "Tikus Kantor",
+        "Gajah Terbang",
+        "Dukun",
+      ];
+
+      function cekKhodam() {
+        const randomIndex = Math.floor(Math.random() * namaKhodam.length);
+        const randomKhodam = "khodam kamu " + namaKhodam[randomIndex];
+        const nama = document.getElementById("nama").value.trim();
+
+        if (nama === "") {
+          alert("Nama tidak boleh kosong!");
+          return;
+        }
+
+        const hasilContainer = document.getElementById("hasil");
+        hasilContainer.innerHTML = `<p>${randomKhodam}</p>`;
+        const inputNama = document.getElementById("nama");
+        inputNama.value = "";
+      }
+
+      const form = document.getElementById("khodamForm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        cekKhodam();
+      });
+    </script>
+  </body>
+</html>
